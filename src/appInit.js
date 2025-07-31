@@ -12,19 +12,6 @@ import i18n from './i18n';
 import { MotionPlugin } from '@vueuse/motion';
 import { useToast } from './composables/useToast';
 import initPageTitle from './utils/exposeConfig';
-import { handleUnauthorizedDomain } from './utils/domainChecker';
-import { initAntiDebug } from './utils/antiDebug';
-import { SECURITY_CONFIG } from './utils/baseConfig';
-
-
-
-if (!handleUnauthorizedDomain()) {
-  throw new Error('Unauthorized domain');
-}
-
-if (SECURITY_CONFIG.enableAntiDebugging) {
-  initAntiDebug();
-}
 
 const initApp = async () => {
   try {
